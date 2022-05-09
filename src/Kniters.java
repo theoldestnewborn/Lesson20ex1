@@ -7,8 +7,9 @@ public class Kniters extends Thread {
 
     @Override
     public void run() {
-        System.out.println("I am " +getName() + " and I am knitting!");
+
         while (hasThread) {
+            System.out.println("I am " +getName() + " and I am knitting!");
             sweatersMade++;
             try {
                 Thread.sleep(100);
