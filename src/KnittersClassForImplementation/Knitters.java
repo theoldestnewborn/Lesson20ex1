@@ -1,27 +1,35 @@
-public class Kniters extends Thread {
+package KnittersClassForImplementation;
+
+public class Knitters implements Runnable {
 
     public boolean hasThread = true;
     public int sweatersMade = 0;
     public long amountOfThread = 0;
+    public String name;
 
 
     @Override
     public void run() {
 
         while (hasThread) {
-            System.out.println("I am " +getName() + " and I am knitting!");
-            sweatersMade++;
+            System.out.println("I am " + getName() + " and I am knitting!");
             try {
                 Thread.sleep(100);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
+            sweatersMade++;
+            System.out.println(sweatersMade);
         }
     }
 
-    public Kniters(String name, int amount)  {
-        setName(name);
+    public Knitters(String name, int amount)  {
+        this.name = name;
         setAmountOfThread(amount);
+    }
+
+    public String getName() {
+        return name;
     }
 
     public int getSweatersMade() {
